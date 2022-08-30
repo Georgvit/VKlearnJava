@@ -5,8 +5,8 @@ public class Sum {
        int x = 3;
        int y = 4;
        int z = 8;
-       int sum = x+ y + z;
-       System.out.println("x + y + z = " + sum );
+       //int sum = x+ y + z;
+       System.out.println("x + y + z = " + (x + y +z) );
    }
 
 }
