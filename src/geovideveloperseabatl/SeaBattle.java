@@ -5,23 +5,30 @@ package geovideveloperseabatl;
 import java.util.Scanner;
 
 public class SeaBattle {
-    static String playerName1 = "Первый игрок";
-    static String playerName2 = "Второй игрок";
+    //Объявление переменных для хранения имен
+   static String playerName1;
+    static String playerName2;
     static Scanner scanner = new Scanner(System.in);
+
+    // Массивы для хранения игрового поля 1 и 2
     static int[][] battlefieldOne = new int[10][10];
     static int[][] battlefieldTwo = new int[10][10];
 
+    // Массивы для хранения результатов хода игрока
     static int[][] monitor1 = new int[10][10];
     static int[][] monitor2 = new int[10][10];
 
     public static void main(String[] args) {
-/*        System.out.println("Игрок 1, пожалуста введите ваше имя");
+
+        //Запуск игры
+        System.out.println("Игрок 1, пожалуста введите ваше имя");
         playerName1 = scanner.nextLine();
         System.out.println("Игрок 2, пожалуста введите ваше имя");
-        playerName2 = scanner.nextLine();*/
+        playerName2 = scanner.nextLine();
         placeShips(playerName1, battlefieldOne);
         placeShips(playerName2, battlefieldTwo);
 
+        //Цикл для перехода хода игрока продолжается до победы + один ход
         while (true) {
             makeTurn(playerName1, monitor1, battlefieldTwo);
             if (isWinCondition()) {
@@ -35,6 +42,7 @@ public class SeaBattle {
 
     }
 
+//    Расстановка кораблей пользователем
     public static void placeShips(String playerName, int[][] battlefield) {
         int deck = 4;
         while (deck >= 1) {
@@ -67,6 +75,7 @@ public class SeaBattle {
         }
     }
 
+    // Прорисовка поля
     public static void drawField(int[][] battlefield) {
         System.out.print("  ");
         for (int i = 0; i < battlefield.length; i++) {
@@ -86,6 +95,7 @@ public class SeaBattle {
         }
     }
 
+// Ход игрока с запоминанием в новый массив
     public static void makeTurn(String playerName, int[][] monitor, int[][] battlefield) {
         while (true) {
             System.out.println(playerName + " ваш ход");
@@ -125,6 +135,7 @@ public class SeaBattle {
         }
     }
 
+    // Счетчик подбитых кораблей
     public static boolean isWinCondition() {
         int counter1 = 0;
         for (int i = 0; i < monitor1.length; i++) {
@@ -155,6 +166,7 @@ public class SeaBattle {
         return false;
     }
 
+    // Защита от дурака при размещении кораблей на поле
     public static boolean isAvailable(int x, int y, int deck, int rotation, int[][] battlefield) {
         if (rotation == 1) {
             if (y + deck > battlefield.length) {
