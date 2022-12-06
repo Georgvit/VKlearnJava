@@ -1,4 +1,4 @@
-package geovideveloperoop;
+package geovideveloperoop.dog;
 
 public class Dog {
 

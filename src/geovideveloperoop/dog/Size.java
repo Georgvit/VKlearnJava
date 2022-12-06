@@ -1,4 +1,4 @@
-package geovideveloperoop;
+package geovideveloperoop.dog;
 
 public enum Size {
     VERY_SMALL("XS"), SMALL("S"), AVERAGE("M"),
