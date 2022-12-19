@@ -1,11 +1,11 @@
 package geovideveloperoop.car;
 
-public class FuellAuto extends Auto {
+public abstract class FuellAuto extends Auto {
     private int availablePetrol;
     private int tankValue;
 
-    public FuellAuto(String producer, String model, EngineType engineType, int availablePetrol, int tankValue) {
-        super(producer, model, engineType);
+    public FuellAuto(String producer, String model, Engine engine, int availablePetrol, int tankValue) {
+        super(producer, model, engine);
         this.availablePetrol = availablePetrol;
         this.tankValue = tankValue;
     }

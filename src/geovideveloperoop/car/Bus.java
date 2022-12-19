@@ -3,8 +3,8 @@ package geovideveloperoop.car;
 public class Bus extends FuellAuto {
     private int passengersNumber;
 
-    public Bus(String producer, String model, EngineType engineType, int availablePetrol, int tankValue, int passengersNumber) {
-        super(producer, model, engineType, availablePetrol, tankValue);
+    public Bus(String producer, String model, Engine engine, int availablePetrol, int tankValue, int passengersNumber) {
+        super(producer, model, engine, availablePetrol, tankValue);
         this.passengersNumber = passengersNumber;
         System.out.println("Клас Автобус был иницилизирован");
     }
@@ -41,5 +41,10 @@ public class Bus extends FuellAuto {
         }
         passengersNumber = 0;
         System.out.println("Пассажиров в автобусе " + passengersNumber);
+    }
+
+    @Override
+    public void energize() {
+        fuelUp(getTankValue() - getAvailablePetrol());
     }
 }

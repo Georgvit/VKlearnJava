@@ -5,12 +5,13 @@ public class ElectricCar extends Auto {
     private int passengersNumber;
 
     public ElectricCar(String producer, String model, int battaryVolume, int passengersNumber) {
-        super(producer, model, EngineType.ELECTRIC);
+        super(producer, model, new Engine());
         this.battaryVolume = battaryVolume;
         this.passengersNumber = passengersNumber;
+        System.out.println("Клас Электрокар был иницилизирован");
     }
 
-    public void charge() {
+    private void charge() {
         System.out.println("Батарея заряжается");
     }
 
@@ -28,5 +29,10 @@ public class ElectricCar extends Auto {
 
     public void setPassengersNumber(int passengersNumber) {
         this.passengersNumber = passengersNumber;
+    }
+
+    @Override
+    public void energize() {
+        charge();
     }
 }
