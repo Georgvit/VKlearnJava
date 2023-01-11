@@ -25,6 +25,8 @@ public class Display {
         }
     }
 
+
+
     public enum Color {
         RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW, BLACK
     }
